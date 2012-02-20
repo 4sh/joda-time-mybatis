@@ -31,7 +31,7 @@ public class LocalDateTypeHandler implements TypeHandler
         Date date = rs.getDate(columnName);
         if (date != null)
         {
-            return new LocalDate(date.getTime(), DateTimeZone.UTC);
+            return new LocalDate(date.getTime()/* see https://github.com/LukeL99/joda-time-mybatis/commit/66ef76c2a65fabdcc2e962e45d1cef38c00e61db#commitcomment-985806 , DateTimeZone.UTC */);
         }
         else
         {
@@ -44,7 +44,7 @@ public class LocalDateTypeHandler implements TypeHandler
         Date date = cs.getDate(columnIndex);
         if (date != null)
         {
-            return new LocalDate(date.getTime(), DateTimeZone.UTC);
+            return new LocalDate(date.getTime() /* https://github.com/LukeL99/joda-time-mybatis/commit/66ef76c2a65fabdcc2e962e45d1cef38c00e61db#commitcomment-985806, DateTimeZone.UTC */);
         }
         else
         {

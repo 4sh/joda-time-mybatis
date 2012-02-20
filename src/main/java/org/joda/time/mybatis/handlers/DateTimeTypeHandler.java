@@ -30,7 +30,7 @@ public class DateTimeTypeHandler implements TypeHandler
         Timestamp ts = rs.getTimestamp(columnName);
         if (ts != null)
         {
-            return new DateTime(ts.getTime(), DateTimeZone.UTC);
+            return new DateTime(ts.getTime() /* see https://github.com/LukeL99/joda-time-mybatis/commit/66ef76c2a65fabdcc2e962e45d1cef38c00e61db#commitcomment-985806, DateTimeZone.UTC */);
         }
         else
         {
@@ -43,7 +43,7 @@ public class DateTimeTypeHandler implements TypeHandler
         Timestamp ts = cs.getTimestamp(columnIndex);
         if (ts != null)
         {
-            return new DateTime(ts.getTime(), DateTimeZone.UTC);
+            return new DateTime(ts.getTime() /* see https://github.com/LukeL99/joda-time-mybatis/commit/66ef76c2a65fabdcc2e962e45d1cef38c00e61db#commitcomment-985806, DateTimeZone.UTC */);
         }
         else
         {
